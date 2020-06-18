@@ -1,0 +1,13 @@
+Welcome to the {} ELECTRICITY BILL MANAGEMENT
+
+The following departments are available for the login.
+
+SLNO.|       DEPARTMENT NAME                                       |                  DEPARTMENT NO.
+___________________________________________________________________________________________________________________________
+(1). |       ADMIN (SUPERUSER)                                     |                     156758
+(2). |       ELECTRICITY BILL GENERATOR                            |                     145759
+(3). |       METER READING                                         |                     145760
+(4). |       ELECTRICITY BILL DELIVERY                             |                     145761
+___________________________________________________________________________________________________________________________
+
+PLEASE ENTER THE RESPECTIVE DEPARTMENT NO. IN THE INPUT FIELD GIVEN BELOW 
