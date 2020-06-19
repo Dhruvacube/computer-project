@@ -17,7 +17,7 @@ ________________________________________________________________________________
         (3).           |        CHECK ALL THE CUSTOMER DEATLS                     |                   06#03
         (4).           |        CHECK THE BILL GENERATION DEPARTMENT              |                   02#01
         (5).           |        CHECK ALL THE EMPLOYEE DEATLS                     |                   07#44
-        (6).           |        CHECK METER READING DEPARTMENT                    |                   03#01
+        (6).           |        INSERT NEW CUSTOMERS USING CSV FILES              |                   03#01
         (7).           |        CHECK THE BILL DELIVERY DEPARTMENT                |                   04#01
         (8).           |        LOGOUT                                            |                   00#01   
 ---------------------------------------------------------------------------------------------------------------------------

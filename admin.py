@@ -8,6 +8,7 @@ from logout import logout
 import csv
 import os
 import mysql.connector as c
+from mysql.connector import Error
 
 connection = c.connect(host='localhost', database='electricity_bill', user='root', password='') 
 db = connection.cursor()
@@ -31,10 +32,11 @@ def adminHome(userid,logintime,userinput=0):
     system('cls') #Clear the screen
 
     #The admin welcome message
-    admin_message = open('files/messages/admin_message.txt','r').read()
-    print(admin_message.format(params['company_name'],userid,logintime,datetime.now()))
-    
-    userinput=input()
+    if userinput==0:
+        admin_message = open('files/messages/admin_message.txt','r').read()
+        print(admin_message.format(params['company_name'],userid,logintime,datetime.now()))
+        
+        userinput=input()
 
     funcAdminTuple = ('01#01','05#02','06#03','04#01','00#01','02#01','07#44','03#01')
 
@@ -51,10 +53,11 @@ def adminHome(userid,logintime,userinput=0):
             dumpdata('customer',userid,logintime)
         elif userinput=='07#44':
             dumpdata('user',userid,logintime)
+        
+        elif userinput=='03#01':
+            exportdatatoTable(userid,logintime)
 
         elif userinput=='02#01':
-            pass
-        elif userinput=='03#01':
             pass
         elif userinput=='04#01':
             pass
@@ -100,7 +103,10 @@ def create_user(userid23,logintime23):
             print('Enter no not characters!')
     
     #Asking to enter the name
-    name = input('Please enter the name\n')
+    name1 = input('Please enter the name\n')
+    name=''
+    for i in name1: 
+        if i.isalpha(): name+=i
 
     while True:
         #ENTERING THE PASSWORD
@@ -163,25 +169,58 @@ def delete_user(userid,logintime):
 
 ######################################################################################################################
 def dumpdata(tablename,userid,logintime):
+    '''This Function is used to dump all the data from tables to a csv files'''
     QUERY = f'SELECT * FROM {tablename}'
     db.execute(QUERY)
     result=db.fetchall()
+    connection.commit()
 
     if tablename=='user':
         filename = 'employee_details'
     else:
         filename = 'customer_details'
+    BASE_DIR = os.getcwd()
 
-    c = csv.writer(open(f'files/details/{filename}.csv', 'a',newline=''))
-    for x in result:
-        c.writerow(x)
+    c1 = csv.writer(open(os.path.join(BASE_DIR,'files','details',f'{filename}.csv'), 'w',newline=''))
+    for x in result: 
+        c1.writerow(x)
     
-    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    
     print('The the data has been successfully dumped')
     print('The path of the file is:')
     print(os.path.join(BASE_DIR, 'files', 'details', f'{filename}.csv'))
 
     time.sleep(2)
     adminHome(userid,logintime)
+
+######################################################################################################################
+
+######################################################################################################################
+
+def exportdatatoTable(userid,logintime):
+    print()
+
+    BASE_DIR = os.getcwd()
+    
+    print('YOU NEED TO WRITE THE DATA IN A CSV FILE')
+    print()
+    print('AND PLACE IT IN THE FOLWWING PATH:')
+    print(os.path.join(BASE_DIR, 'files', 'export'))
+    print()
+
+    filename = input('Please you filename that you put in that directory \n(no need of putting the .csv after the filename)\n')
+    n=0
+    csv_data = csv.reader(open(os.path.join(BASE_DIR, 'files', 'export',f'{filename}.csv'),'r'))
+    for row in csv_data:
+        try:
+            db.execute(f'INSERT INTO customer VALUES({row[0]},{row[1]},{row[2]},"{row[3]}","{row[4]}",{row[5]},"{row[6]}","{row[7]}","{row[8]}","{row[9]}",{row[10]},{row[11]})')
+            connection.commit()
+        except Error: n+=1
+    
+    print(n,'number of duplicate values detected!!')
+    time.sleep(2)
+    adminHome(userid,logintime)
+
+
 
 ######################################################################################################################

@@ -133,8 +133,6 @@ def login_user_in(userid,hashpass,deptno,work=None):
         adminHome(userid,logintime)
     elif branch=='BILL GENERATION':
         pass
-    elif branch=='METER READING':
-        pass
     elif branch=='BILL DELIVERY':
         pass
 ######################################################################################################################
