@@ -4,9 +4,11 @@ import sys
 import time
 from datetime import datetime
 from os import path, system
-from admin import adminHome
 
 import mysql.connector as c
+
+from admin import adminHome
+from billGen import bilGenHome
 
 connection = c.connect(host='localhost', database='electricity_bill', user='root', password='') 
 db = connection.cursor()
@@ -132,7 +134,7 @@ def login_user_in(userid,hashpass,deptno,work=None):
     if branch=='ADMIN':
         adminHome(userid,logintime)
     elif branch=='BILL GENERATION':
-        pass
+        bilGenHome(userid,logintime)
     elif branch=='BILL DELIVERY':
         pass
 ######################################################################################################################

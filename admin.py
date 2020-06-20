@@ -1,14 +1,18 @@
+import csv
 import hashlib
 import json
+import os
 import sys
 import time
 from datetime import datetime
 from os import path, system
-from logout import logout
-import csv
-import os
+from billEmail  import bilEmailHome
+
 import mysql.connector as c
 from mysql.connector import Error
+
+from billGen import bilGenHome
+from logout import logout
 
 connection = c.connect(host='localhost', database='electricity_bill', user='root', password='') 
 db = connection.cursor()
@@ -25,24 +29,24 @@ with open(my_file, 'r') as c:
 ############################################################################################################################################################################################################################################
 
 
-def adminHome(userid,logintime,userinput=0):
+def adminHome(userid,logintime):
     #Here userinput is for the functioncode coming from the other function   
     '''This the admin homepage'''
 
     system('cls') #Clear the screen
 
     #The admin welcome message
-    if userinput==0:
-        admin_message = open('files/messages/admin_message.txt','r').read()
-        print(admin_message.format(params['company_name'],userid,logintime,datetime.now()))
+    admin_message = open('files/messages/admin_message.txt','r').read()
+    print(admin_message.format(params['company_name'],userid,logintime,datetime.now()))
         
-        userinput=input()
+    userinput=input()
 
     funcAdminTuple = ('01#01','05#02','06#03','04#01','00#01','02#01','07#44','03#01')
 
     if userinput not in funcAdminTuple:
         system('cls') #Clear the screen
         adminHome(userid,logintime)
+    
     else:
         if userinput=='01#01':
             create_user(userid,logintime)
@@ -58,9 +62,9 @@ def adminHome(userid,logintime,userinput=0):
             exportdatatoTable(userid,logintime)
 
         elif userinput=='02#01':
-            pass
+            bilGenHome(userid, logintime)
         elif userinput=='04#01':
-            pass
+            bilEmailHome(userid, logintime)
 
         #For the Logout
         elif userinput=='00#01':
