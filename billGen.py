@@ -1,9 +1,10 @@
 import json
 from datetime import datetime
-from os import path, system
+from os import path
 
 import mysql.connector as c
 
+from clearscreen import clear
 from logout import logout
 
 connection = c.connect(host='localhost', database='electricity_bill', user='root', password='') 
@@ -20,7 +21,7 @@ def bilGenHome(userid,logintime):
     '''This is the bill generation department homepage function'''
 
     mydate = datetime.now()
-    system('cls') #Clear the screen
+    clear()
 
     #The bill generation welcome message
     billGenAdmin_message = open('files/messages/billGennotAdmin_message.txt','r').read()
@@ -31,7 +32,7 @@ def bilGenHome(userid,logintime):
 
 
     if userinput not in funcAdminTuple:
-        system('cls') #Clear the screen
+        clear()
         bilGenHome(userid,logintime)
     
     else:

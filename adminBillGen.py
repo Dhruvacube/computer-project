@@ -6,18 +6,20 @@ import sys
 import time
 from datetime import datetime
 from os import path, system
-from billEmail  import bilEmailHome
 
 import mysql.connector as c
 from mysql.connector import Error
 
+from billEmail import bilEmailHome
 from billGen import bilGenHome
+from clearscreen import clear
 from logout import logout
 
 connection = c.connect(host='localhost', database='electricity_bill', user='root', password='') 
 db = connection.cursor()
 
 #Opening of config.json file
+
 THIS_FOLDER = path.dirname(path.abspath(__file__))
 my_file = path.join(THIS_FOLDER,'files','config_file', 'config.json')
 
@@ -33,7 +35,7 @@ def adminHome(userid,logintime):
     #Here userinput is for the functioncode coming from the other function   
     '''This the admin homepage'''
 
-    system('cls') #Clear the screen
+    clear() #Clear the screen
 
     #The admin welcome message
     admin_message = open('files/messages/admin_message.txt','r').read()
@@ -44,7 +46,7 @@ def adminHome(userid,logintime):
     funcAdminTuple = ('01#01','05#02','06#03','04#01','00#01','02#01','07#44','03#01')
 
     if userinput not in funcAdminTuple:
-        system('cls') #Clear the screen
+        clear() #Clear the screen
         adminHome(userid,logintime)
     
     else:
@@ -78,7 +80,7 @@ def adminHome(userid,logintime):
 
 def create_user(userid23,logintime23):
     '''This function is used to create a user of the software'''
-    system('cls') #Clear the screen
+    clear() #Clear the screen
     db.execute('SELECT dept_no, deptname from dept')
     dept = db.fetchall()
 
@@ -119,7 +121,7 @@ def create_user(userid23,logintime23):
         if password1==password2:
             break
         else:
-            system('cls')
+            clear()
             print('Enter again the two password dosen\'t match!')
     
     hashpass1 = hashlib.md5(password1.encode())
@@ -137,7 +139,7 @@ def create_user(userid23,logintime23):
     connection.commit()
 
     #The admin welcome message
-    system('cls')
+    clear()
     created_message = open('files/messages/create_msg.txt','r').read()
     print(created_message.format(name,password1,branch,deptno1,useradminid))
     print()
@@ -149,7 +151,7 @@ def create_user(userid23,logintime23):
 ######################################################################################################################
 
 def delete_user(userid,logintime):
-    system('cls')
+    clear()
     #Department No dictionary
     db.execute('SELECT useradmin_id FROM user')
     sqlquery = db.fetchall()

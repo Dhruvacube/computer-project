@@ -7,6 +7,7 @@ ________________________________________________________________________________
 (1). |       ADMIN (SUPERUSER)                                     |                     156758
 (2). |       ELECTRICITY BILL GENERATOR                            |                     145759
 (3). |       ELECTRICITY BILL DELIVERY                             |                     145761
+(4). |       CUSTOMER VIEW BILL SERVICES (ONLY CONSUMERS)          |                     15675812                                        
 ___________________________________________________________________________________________________________________________
 
 PLEASE ENTER THE RESPECTIVE DEPARTMENT NO. IN THE INPUT FIELD GIVEN BELOW 

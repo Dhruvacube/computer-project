@@ -3,12 +3,15 @@ import json
 import sys
 import time
 from datetime import datetime
-from os import path, system
+from os import path
 
 import mysql.connector as c
 
-from admin import adminHome
+from adminBillGen import adminHome
 from billGen import bilGenHome
+from clearscreen import clear
+from billEmail import bilEmailHome
+from customerView import consumerDetails
 
 connection = c.connect(host='localhost', database='electricity_bill', user='root', password='') 
 db = connection.cursor()
@@ -26,7 +29,8 @@ with open(my_file, 'r') as c:
 #Welcome message
 def welcome_message():
     '''The first welcome message'''
-    system('cls') #Clear the screen
+    clear()
+
     #The welcome message
     welcome_message = open('files/messages/welcome_message.txt','r').read()
     print(welcome_message.format(params['company_name']))
@@ -54,7 +58,10 @@ def login_deptno(message=''):
         print(message)
         try:
             deptno_in = int(input('Please enter the department no.\n'))
-            logincheck(deptno_in)
+            if deptno_in == 15675812:
+                consumerDetails()
+            else:
+                logincheck(deptno_in)
             break
         except ValueError:
             print()
@@ -90,7 +97,8 @@ def logincheck(deptno):
 #  (3) Make user logged in
 def login_user(deptno):
     '''This is the login screen'''
-    system('cls') #Clear the screen
+    clear()
+
     print()
     print('Now please enter your login credentials')
     print('---------------------------------------')
@@ -136,7 +144,7 @@ def login_user_in(userid,hashpass,deptno,work=None):
     elif branch=='BILL GENERATION':
         bilGenHome(userid,logintime)
     elif branch=='BILL DELIVERY':
-        pass
+        bilEmailHome(userid,logintime)
 ######################################################################################################################
 
 ############################################################################################################################################################################################################################################
