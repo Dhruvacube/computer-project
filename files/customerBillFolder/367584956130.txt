@@ -1,0 +1,20 @@
+--------------------------------------------------------------------------------------------------------
+                                        ABC ELECTRICITY CUSTOMER DEPARTMENT
+--------------------------------------------------------------------------------------------------------
+
+Consumer Name : Aman Singh
+
+Meter No : 1567588
+Consumer No : 7584956130
+Meter Load : 4.5
+Units Consumed : 36 
+
+Meter Rent : ₹10
+MVCA : ₹60
+Fixed Charge : ₹100
+Rebate : ₹1
+Net Amount Payable : ₹ 352
+
+Email : amanphelwan@ggmail.com
+
+Address : 75d, Nelson Manickam Road, Aminjikarai,Chennai,?Tamil Nadu, 600029

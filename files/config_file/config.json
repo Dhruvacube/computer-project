@@ -1,5 +1,7 @@
 {
     "params": {
-        "company_name": "ABC"
+        "company_name": "ABC",
+        "email": "email@gmail.com",
+        "password_email": "password"
     }
 }

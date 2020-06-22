@@ -1,5 +1,8 @@
 import json
 import os
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from datetime import datetime
 from os import path
 
@@ -16,7 +19,7 @@ THIS_FOLDER = path.dirname(path.abspath(__file__))
 my_file = path.join(THIS_FOLDER,'files','config_file', 'config.json')
 
 with open(my_file, 'r') as c:
-    params = json.load(c)["params"]
+    params = json.load(c)["params"] 
 
 def bilEmailHome(userid,logintime):
     '''This is the bill generation department homepage function'''
@@ -37,6 +40,23 @@ def bilEmailHome(userid,logintime):
     
     else:
         if userinput=='01#02':
-            pass
+            sendmailtocustomers()
         elif userinput=='00#01':
             logout(userid)
+
+def sendmailtocustomers():
+    port, smtp_server = 465, 'smtp.gmail.com'
+    login, password = params['email'], params['password_email']
+
+    mydate = datetime.now()
+
+    db.execute(f'SELECT email,consumername FROM customer WHERE month="{mydate.strftime("%B")}"')
+    data = db.fetchall()
+
+    message = MIMEMultipart()
+    message["from"] = login
+
+    for x,y in data:
+        message["subject"] = f"Your electricity bill has been generated for the month {mydate.strftime('%B')}  ({y})"
+        
+

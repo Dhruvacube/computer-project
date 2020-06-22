@@ -1,0 +1,20 @@
+--------------------------------------------------------------------------------------------------------
+                                        ABC ELECTRICITY CUSTOMER DEPARTMENT
+--------------------------------------------------------------------------------------------------------
+
+Consumer Name : Ayush Saha
+
+Meter No : 1567582
+Consumer No : 7584956124
+Meter Load : 4.5
+Units Consumed : 785 
+
+Meter Rent : ₹10
+MVCA : ₹60
+Fixed Charge : ₹100
+Rebate : ₹1.6
+Net Amount Payable : ₹ 5430.4
+
+Email : ayushsaha@gmail.com
+
+Address : D 74,Delhi, Delhi, 110017

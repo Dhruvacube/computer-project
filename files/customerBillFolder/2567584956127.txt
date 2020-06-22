@@ -1,0 +1,20 @@
+--------------------------------------------------------------------------------------------------------
+                                        ABC ELECTRICITY CUSTOMER DEPARTMENT
+--------------------------------------------------------------------------------------------------------
+
+Consumer Name : Chirag Majumdar
+
+Meter No : 1567585
+Consumer No : 7584956127
+Meter Load : 4.5
+Units Consumed : 256 
+
+Meter Rent : ₹10
+MVCA : ₹60
+Fixed Charge : ₹100
+Rebate : ₹1.6
+Net Amount Payable : ₹ 1643.4
+
+Email : chiragbaba@gmail.com
+
+Address : 75d, Nelson Manickam Road, Aminjikarai,Chennai,?Tamil Nadu, 600029

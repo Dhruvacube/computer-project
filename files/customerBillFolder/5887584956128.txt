@@ -1,0 +1,20 @@
+--------------------------------------------------------------------------------------------------------
+                                        ABC ELECTRICITY CUSTOMER DEPARTMENT
+--------------------------------------------------------------------------------------------------------
+
+Consumer Name : Hritesh Kumar De
+
+Meter No : 1567586
+Consumer No : 7584956128
+Meter Load : 4.5
+Units Consumed : 588 
+
+Meter Rent : ₹10
+MVCA : ₹60
+Fixed Charge : ₹100
+Rebate : ₹1.6
+Net Amount Payable : ₹ 4022.4
+
+Email : hkdmarke@gmail.com
+
+Address : 2nd Flr, No 7, Readymoney Terrace, 167, Dr Annie Besant Road, Opp Canera Bank, Worli,Mumbai, Maharashtra, 400018

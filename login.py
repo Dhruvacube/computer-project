@@ -142,7 +142,7 @@ def login_user_in(userid,hashpass,deptno,work=None):
     if branch=='ADMIN':
         adminHome(userid,logintime)
     elif branch=='BILL GENERATION':
-        bilGenHome(userid,logintime)
+        bilGenHome(userid,logintime) 
     elif branch=='BILL DELIVERY':
         bilEmailHome(userid,logintime)
 ######################################################################################################################

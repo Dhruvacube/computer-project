@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------------------------------
-                                        {} ELECTRICITY CUSTOMER DEPARTMENT
+                                        {} ELECTRICITY CUSTOMER BILL
 --------------------------------------------------------------------------------------------------------
 
 Consumer Name : {}
@@ -8,9 +8,14 @@ Meter No : {}
 Consumer No : {}
 Meter Load : {}
 Units Consumed : {} 
-Net Amount Payable : {}
+
+Meter Rent : ₹10
+MVCA : ₹60
+Fixed Charge : ₹100
+Rebate : ₹{}
+Adujustment Charges : {}
+Net Amount Payable : ₹ {}
 
 Email : {}
 
 Address : {}
-

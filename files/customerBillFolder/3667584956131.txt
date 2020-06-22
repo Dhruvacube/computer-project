@@ -1,0 +1,20 @@
+--------------------------------------------------------------------------------------------------------
+                                        ABC ELECTRICITY CUSTOMER DEPARTMENT
+--------------------------------------------------------------------------------------------------------
+
+Consumer Name : Aman Sa
+
+Meter No : 1567589
+Consumer No : 7584956131
+Meter Load : 4.5
+Units Consumed : 366 
+
+Meter Rent : ₹10
+MVCA : ₹60
+Fixed Charge : ₹100
+Rebate : ₹1.6
+Net Amount Payable : ₹ 2431.4
+
+Email : amanvidyamandir@gmail.com
+
+Address : D 74,Delhi, Delhi, 110017
