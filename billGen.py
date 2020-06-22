@@ -62,6 +62,9 @@ def generateBill(userid,logintime):
         time.sleep(2)
         bilGenHome(userid,logintime)
     
+    db.execute(f'SELECT unit_consumed,consumerno FROM customer WHERE month="{month}"')
+    consumerno = db.fetchall()
+    
     #Getting the prevous reading and current reading
     counter=0
     for x,y in consumerno:
@@ -112,5 +115,5 @@ def Bill_Calc1(unit):
     elif(unit>250):           #above 250 units
         return (ceil((50*4.89)+((150-50)*5.4)+((250-150)*6.41)+(unit-250)*7.16)+meter+MVCA+fixedChrge+int(untstr)-1.6 ,1.6,untstr) #At the end the price deducted is rebate
     else:
-        print("No usage ")
+        return (0,0,0)
         #amount=0;

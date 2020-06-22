@@ -4,7 +4,8 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from datetime import datetime
-from os import path
+from os import path, getcwd
+import time
 
 import mysql.connector as c
 
@@ -40,23 +41,50 @@ def bilEmailHome(userid,logintime):
     
     else:
         if userinput=='01#02':
-            sendmailtocustomers()
+            sendmailtocustomers(userid,logintime)
         elif userinput=='00#01':
             logout(userid)
 
-def sendmailtocustomers():
+def sendmailtocustomers(userid,logintime):
     port, smtp_server = 465, 'smtp.gmail.com'
     login, password = params['email'], params['password_email']
 
     mydate = datetime.now()
 
-    db.execute(f'SELECT email,consumername FROM customer WHERE month="{mydate.strftime("%B")}"')
+    db.execute(f'SELECT email,consumername, consumerno FROM customer WHERE month="{mydate.strftime("%B")}"')
     data = db.fetchall()
 
     message = MIMEMultipart()
     message["from"] = login
 
-    for x,y in data:
+    error,emailno = 0,0
+    for x,y,z in data:
         message["subject"] = f"Your electricity bill has been generated for the month {mydate.strftime('%B')}  ({y})"
+        
+        db.execute(f'SELECT unit_consumed FROM customer WHERE month="{mydate.strftime("%B")}" AND consumerno="{z}"')
+        unitsConsumed = db.fetchall()[0][0]
+        try:
+            with open(path.join(getcwd(),'files','customerBillFolder',f'{unitsConsumed}{z}.txt'),'r') as bill:
+                body = bill.read()
+                
+                with smtplib.SMTP(smtp_server, port) as server:
+                    server.login(login, password)
+                    server.sendmail(message["from"], x, body)
+                    print(f"Email (BILL) sent to {y}")
+                    print()
+                    emailno+=1
+        except:
+            print('There was some error!')
+            print()
+            error+=1
+    
+    print(emailno, " Email sent!")
+    print("With ",error," errors!")
+    print()
+    print("Now please wait for two seconds!")
+    time.sleep(2)
+    bilEmailHome(userid,logintime)
+
+
         
 

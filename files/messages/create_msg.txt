@@ -1,4 +1,4 @@
-The user is created with the follwing credentials:
+The user is created with the following credentials:
 
 USERNAME : {}
 PASSWORD : {}
