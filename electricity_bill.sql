@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2020 at 08:40 AM
+-- Generation Time: Jul 27, 2020 at 09:13 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -127,7 +127,7 @@ ALTER TABLE `login`
   ADD PRIMARY KEY (`id`),
   ADD KEY `branch` (`branch`),
   ADD KEY `userid` (`userid`),
-  ADD KEY `dept_no` (`dept_no`);
+  ADD KEY `login_ibfk_3` (`dept_no`);
 
 --
 -- Indexes for table `user`
@@ -164,7 +164,7 @@ ALTER TABLE `dept`
 ALTER TABLE `login`
   ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`branch`) REFERENCES `dept` (`deptname`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `login_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `user` (`useradmin_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `login_ibfk_3` FOREIGN KEY (`dept_no`) REFERENCES `dept` (`dept_no`);
+  ADD CONSTRAINT `login_ibfk_3` FOREIGN KEY (`dept_no`) REFERENCES `dept` (`dept_no`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user`
