@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2020 at 09:13 AM
+-- Generation Time: Jul 27, 2020 at 02:28 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -118,7 +118,7 @@ ALTER TABLE `dept`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `deptname` (`deptname`),
   ADD UNIQUE KEY `dept_no` (`dept_no`),
-  ADD UNIQUE KEY `dept_unique` (`deptname`) USING HASH;
+  ADD UNIQUE KEY `dept_unique` (`deptname`);
 
 --
 -- Indexes for table `login`
@@ -162,9 +162,9 @@ ALTER TABLE `dept`
 -- Constraints for table `login`
 --
 ALTER TABLE `login`
-  ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`branch`) REFERENCES `dept` (`deptname`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`branch`) REFERENCES `user` (`useradmin_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `login_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `user` (`useradmin_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `login_ibfk_3` FOREIGN KEY (`dept_no`) REFERENCES `dept` (`dept_no`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `login_ibfk_3` FOREIGN KEY (`dept_no`) REFERENCES `user` (`dept_no`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user`
