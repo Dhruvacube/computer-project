@@ -219,7 +219,7 @@ def exportdatatoTable(userid,logintime):
     csv_data = csv.reader(open(os.path.join(BASE_DIR, 'files', 'export',f'{filename}.csv'),'r'))
     for row in csv_data:
         try:
-            db.execute(f'INSERT INTO customer VALUES({row[0]},{row[1]},{row[2]},"{row[3]}","{row[4]}",{row[5]},"{row[6]}","{row[7]}","{row[8]}","{row[9]}",{row[10]},{row[11]})')
+            db.execute(f'INSERT INTO customer VALUES({row[0]},{row[1]},{row[2]},"{row[3]}","{row[4]}",{row[5]},"{row[6]}","{row[7]}","{row[8]}","{row[9]}",{row[10]})')
             connection.commit()
         except Error: n+=1
     

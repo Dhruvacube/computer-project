@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------------------------------
-                                        ABC ELECTRICITY CUSTOMER DEPARTMENT
+                                        ABC ELECTRICITY CUSTOMER BILL
 --------------------------------------------------------------------------------------------------------
 
 Consumer Name : Ayush Saha
@@ -13,6 +13,7 @@ Meter Rent : ₹10
 MVCA : ₹60
 Fixed Charge : ₹100
 Rebate : ₹1.6
+Adujustment Charges : 5
 Net Amount Payable : ₹ 5430.4
 
 Email : ayushsaha@gmail.com

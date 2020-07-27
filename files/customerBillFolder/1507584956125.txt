@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------------------------------
-                                        ABC ELECTRICITY CUSTOMER DEPARTMENT
+                                        ABC ELECTRICITY CUSTOMER BILL
 --------------------------------------------------------------------------------------------------------
 
 Consumer Name : Smyan Kotkar
@@ -13,6 +13,7 @@ Meter Rent : ₹10
 MVCA : ₹60
 Fixed Charge : ₹100
 Rebate : ₹1.4
+Adujustment Charges : 0
 Net Amount Payable : ₹ 953.6
 
 Email : smyankotkar@gmail.com

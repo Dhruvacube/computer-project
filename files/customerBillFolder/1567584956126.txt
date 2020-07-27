@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------------------------------
-                                        ABC ELECTRICITY CUSTOMER DEPARTMENT
+                                        ABC ELECTRICITY CUSTOMER BILL
 --------------------------------------------------------------------------------------------------------
 
 Consumer Name : Aritra Das
@@ -13,6 +13,7 @@ Meter Rent : ₹10
 MVCA : ₹60
 Fixed Charge : ₹100
 Rebate : ₹1.5
+Adujustment Charges : 6
 Net Amount Payable : ₹ 997.5
 
 Email : aritradada@gmail.com

@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------------------------------
-                                        ABC ELECTRICITY CUSTOMER DEPARTMENT
+                                        ABC ELECTRICITY CUSTOMER BILL
 --------------------------------------------------------------------------------------------------------
 
 Consumer Name : Suvojit Dutta
@@ -13,6 +13,7 @@ Meter Rent : ₹10
 MVCA : ₹60
 Fixed Charge : ₹100
 Rebate : ₹1.6
+Adujustment Charges : 6
 Net Amount Payable : ₹ 2431.4
 
 Email : suvojitkaka@gmail.com
