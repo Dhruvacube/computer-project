@@ -1,7 +1,7 @@
 {
     "params": {
         "company_name": "ABC",
-        "email": "dhruvashaw@gmail.com",
-        "password_email": "cube12345?"
+        "email": "samplemail@provideer.com",
+        "password_email": "password of the email?"
     }
 }
