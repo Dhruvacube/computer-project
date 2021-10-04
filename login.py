@@ -14,6 +14,7 @@ from billEmail import bilEmailHome
 from customerView import consumerDetails
 
 connection = c.connect(host='localhost', database='electricity_bill', user='root', password='') 
+#password : 69@ea
 db = connection.cursor()
 
 
@@ -46,12 +47,13 @@ def welcome_message():
 ############################################################################################################################################################################################################################################
 
 
-######################################################################################################################
+##############################################################################################
 
 # The function 1 and 2 are related to each other
 # The first function catches exception and the second function is for validation
 
 # (1) Makes the user to get logged in into the correct deptno
+
 def login_deptno(message=''):
     '''Makes the user to get logged in into the correct deptno'''
     while True:
@@ -65,12 +67,13 @@ def login_deptno(message=''):
             break
         except ValueError:
             print()
-            print('Please Enter a number not alphabets')
+            print('Please recheck department no (Tip: Enter all numbers not alphabets !)')
 
 
 # (2) Checks the login (Validation)
+
 def logincheck(deptno):
-    '''This is a function to check if the user exists and gets him logged in'''
+    '''This is a function to check if the user exists in database and gets him logged in'''
 
     #Department No dictionary
     db.execute('SELECT dept_no FROM dept')
@@ -80,7 +83,7 @@ def logincheck(deptno):
     #Check if the department no entered is correct
     newline='\n'
     if (deptno,) not in deptno_dict:
-        login_deptno(f'{deptno} Department No is not valid {newline} Please enter a valid department no !')
+        login_deptno(f'{deptno} Department No is invalid {newline} Please enter a valid department no !!')
     else:
         login_user(deptno)
 
@@ -88,13 +91,14 @@ def logincheck(deptno):
 
 
 ######################################################################################################################
-
-# Similarly here the function 3 and 4 are realated to each other
-# the 3rd function is used to logged the user anser in and 4th function is used for creatting a session and
-# then give the user out the appropriate page 
-
+'''
+Similarly here the function 3 and 4 are realated to each other the 3rd function
+is used to logged the user answer in and 4th function isused for creating a
+session and then give the user out the appropriate page 
+'''
 
 #  (3) Make user logged in
+
 def login_user(deptno):
     '''This is the login screen'''
     clear()
@@ -119,7 +123,8 @@ def login_user(deptno):
         login_user_in(userid,hashpass.hexdigest(),deptno)
 
 
-#  (4) Checks the logged in user branch and gives out the appropriate page
+# (4) Checks the logged in user branch and gives out the appropriate page
+
 def login_user_in(userid,hashpass,deptno,work=None):
     '''Checks the logged in user branch and gives out the appropriate page'''
     logintime = datetime.now()   #Creating session
@@ -134,8 +139,8 @@ def login_user_in(userid,hashpass,deptno,work=None):
         db.execute(f'UPDATE login set session={datetime.now()} WHERE userid="{userid} AND session_out="0000%"')
 
     branchget = userid.split("#")
-    print('Please wait you being redirected there! in 3 sec.....')
-    time.sleep(3)
+    print('Please wait you being redirected there! in 5 sec.....')
+    time.sleep(5)
 
     #Validation
     branch = str(branchget[1])
@@ -145,6 +150,8 @@ def login_user_in(userid,hashpass,deptno,work=None):
         bilGenHome(userid,logintime) 
     elif branch=='BILL DELIVERY':
         bilEmailHome(userid,logintime)
+    #else:
+        #print('error: invalid!')
 ######################################################################################################################
 
 ############################################################################################################################################################################################################################################
